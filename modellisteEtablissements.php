@@ -1,12 +1,8 @@
-
-
-
 <?php
-echo "chargé!";exit;
-function lgEtab(){
-    $req=obtenirReqEtablissements();
+function lgEtab($connexion){
+$req=obtenirReqEtablissements();
 $rsEtab=$connexion->query($req);
-$lgEtab=$rsEtab->fetchAll();
+return $rsEtab->fetchAll();
 }
 ?>
 

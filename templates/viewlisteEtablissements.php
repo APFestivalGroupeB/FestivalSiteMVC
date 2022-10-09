@@ -1,4 +1,5 @@
 
+
     <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
 <table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
@@ -11,7 +12,7 @@ class='tabNonQuadrille'>
    <tr class='enTeteTabNonQuad'>
       <td colspan='4'>Etablissements</td>
    </tr>
-   <?php foreach(lgEtab() as $value): ?>
+   <?php foreach($lgEtab  as $value): ?>
    <tr class='ligneTabNonQuad'>
          <td width='52%'><?= $value['nom'] ?></td>
          
@@ -23,28 +24,28 @@ class='tabNonQuadrille'>
          <a href='modificationEtablissement.php?action=demanderModifEtab&amp;idEtab=<?= $value['id'] ?>'>
          Modifier</a></td>
 		 
-		 <?php if(!existeAttributionsEtab($connexion, $id)) : ?>
+		 <?php if(!existeAttributionsEtab($connexion, $value['id'])) : ?>
 		 <td width='16%' align='center'> 
             <a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;idEtab=<?= $value['id'] ?>'>
             Supprimer</a></td>
 		 <?php else : ?>
 			
-			<?php if(obtenirNbOccup($connexion, $id) == ChambresMax($connexion, $id)) : ?>
+			<?php if(obtenirNbOccup($connexion, $value['id']) == ChambresMax($connexion, $value['id'])) : ?>
 				<td width='16%'>Complet</td>
 			<?php else : ?>
-				<?php if(obtenirNbOccup($connexion, $id) == ChambresMax($connexion, $id)) : ?>
+				<?php if(obtenirNbOccup($connexion, $value['id']) == ChambresMax($connexion, $value['id'])) : ?>
                 <td width='16%'>Complet</td>
             <?php else : ?>
-                <td width='16%'><?= obtenirNbOccup($connexion, $id) ?> chambres occupés</td>
+                <td width='16%'><?= obtenirNbOccup($connexion, $value['id']) ?> chambres occupés</td>
             <?php endif ?>
-		 
+            <?php endif ?>
 		 <?php endif ?>
 	
     </tr>
-	<?php endforeach ?>
+	<?php endforeach  ?> 
+  
 	<tr class='ligneTabNonQuad'>
       <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
       Création d'un établissement</a ></td>
   </tr>
 </table>
-

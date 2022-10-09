@@ -1,9 +1,9 @@
 <?php
-
-$titre="/listeEtablissement";
+$titre="/creationEtablissement";
 include("_debut.inc.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
+
 $connexion=connect();
 if (!$connexion)
 {
@@ -11,13 +11,15 @@ if (!$connexion)
    afficherErreurs();
    exit();
 }
+$tabCivilite=array("M.","Mme","Melle");  
 
-require ('modellisteEtablissements.php');
-$lgEtab  = lgEtab($connexion)  ;
+$action=$_REQUEST['action'];
+
+require ('modellcreationEtablissements.php');
 ob_start();
 
- require ('templates/viewlisteEtablissements.php');
- $content = ob_get_clean();
- echo  $content;
 
+require ('templates/viewcreationEtablissements.php');
+$content = ob_get_clean();
+echo  $content;
 ?>

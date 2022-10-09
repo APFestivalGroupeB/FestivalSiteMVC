@@ -1,9 +1,9 @@
 <?php
-
-$titre="/listeEtablissement";
+$titre="/suprressionEtablissement";
 include("_debut.inc.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
+
 $connexion=connect();
 if (!$connexion)
 {
@@ -12,12 +12,12 @@ if (!$connexion)
    exit();
 }
 
-require ('modellisteEtablissements.php');
-$lgEtab  = lgEtab($connexion)  ;
+$id=$_REQUEST['idEtab'];  
+$lgEtab=obtenirDetailEtablissement($connexion, $id);
 ob_start();
+require ('templates/viewsuppressionEtablissement.php');
 
- require ('templates/viewlisteEtablissements.php');
- $content = ob_get_clean();
- echo  $content;
 
+$content = ob_get_clean();
+echo  $content;
 ?>
