@@ -15,11 +15,11 @@ $tabCivilite=array("M.","Mme","Melle");
 
 $action=$_REQUEST['action'];
 
-require ('modellcreationEtablissements.php');
+
 ob_start();
 
 
-require ('templates/viewcreationEtablissements.php');
+require ('templates/viewcreationEtablissement.php');
 $content = ob_get_clean();
 echo  $content;
 ?>

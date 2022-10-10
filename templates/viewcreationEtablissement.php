@@ -20,7 +20,7 @@
          <td> Id*: </td>
          <td><input type='text' value='$id' name='id' size ='10' 
          maxlength='8'></td>
-      </tr>"
+      </tr>
 
 <?php else : ?>
     <tr class="ligneTabNonQuad">
