@@ -18,8 +18,9 @@ $action=$_REQUEST['action'];
 
 ob_start();
 
-
+$type=0;
 require ('templates/viewcreationEtablissement.php');
+
 $content = ob_get_clean();
 echo  $content;
 ?>
