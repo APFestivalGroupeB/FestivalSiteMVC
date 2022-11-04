@@ -1,15 +1,24 @@
 <table width='80%' cellpadding='0' cellspacing='0' align='center'>
-   <tr>
-   <td align='center'><a href='index.php'>Accueil ></a> <a href='listeEtablissements.php'> listeEtablissements ></a> creationEtablissement</td>
-   </tr>
+	<tr>
+		<td align='center'>
+			<a href='index.php'>Accueil ></a>
+			<a href='listeEtablissements.php'> listeEtablissements ></a>
+			 creationEtablissement
+		</td>
+	</tr>
 </table>
 <br>
-
-
-
 <?php if ($_REQUEST['action']=='demanderCreEtab') : ?>
-    <form method='POST' action='creationEtablissement.php?'>
-   <input type='hidden' value='validerCreEtab' name='action'>
+<form method='POST' action='creationEtablissement.php?'>
+	<input type='hidden' value='validerCreEtab' name='action'>
+	<table width='85%' align='center' cellspacing='0' cellpadding='0'class='tabNonQuadrille'>
+		<tr class='enTeteTabNonQuad'>
+			<td colspan='3'>
+				<?php endif ?>
+		
+
+<form method='POST' action='index.php?action=creationEtablissement&amp;modif=validerCreEtab'>
+   <input type='hidden' value='validerCreEtab' name='modif'>
    <table width='85%' align='center' cellspacing='0' cellpadding='0' 
    class='tabNonQuadrille'>
    
@@ -18,63 +27,60 @@
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Id*: </td>
-         <td><input type='text' value='$id' name='id' size ='10' 
+         <td><input type='text' value="<?=isset($_REQUEST['$id'])?$_REQUEST['$id']:' '?>" name='id' size ='10' 
          maxlength='8'></td>
       </tr>
-
-<?php else : ?>
-    <tr class="ligneTabNonQuad">
+     
+            <tr class="ligneTabNonQuad">
          <td> Nom*: </td>
-         <td><input type="text" value="'.?=$value['nom'] ?.'" name="nom" size="50" 
+         <td><input type="text" value="<?=isset($_REQUEST['$nom'])?$_REQUEST['$nom']:' '?>" name="nom" size="50" 
          maxlength="45"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> Adresse*: </td>
-         <td><input type="text" value="'.?=$value['adresseRue'] ?.'" name="adresseRue" 
+         <td><input type="text"  value="<?=isset($_REQUEST['$adresseRue'])?$_REQUEST['$adresseRue']:' '?>" name="adresseRue"
          size="50" maxlength="45"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> Code postal*: </td>
-         <td><input type="text" value="'.$codePostal.'" name="codePostal" 
+         <td><input type="text" value="<?=isset($_REQUEST['$codePostal'])?$_REQUEST['$codePostal']:' '?>" name="codePostal" 
          size="4" maxlength="5"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> Ville*: </td>
-         <td><input type="text" value="'.$ville.'" name="ville" size="40" 
+         <td><input type="text" value="<?=isset($_REQUEST['$ville'])?$_REQUEST['$ville']:' '?>" name="ville" size="40" 
          maxlength="35"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> Téléphone*: </td>
-         <td><input type="text" value="'.$tel.'" name="tel" size ="20" 
+         <td><input type="text" value="<?=isset($_REQUEST['$tel'])?$_REQUEST['$tel']:' '?>" name="tel"  size ="20" 
          maxlength="10"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> E-mail: </td>
-         <td><input type="text" value="'.$adresseElectronique.'" name=
+         <td><input type="text" value="<?=isset($_REQUEST['$adresseElectronique'])?$_REQUEST['$adresseElectronique']:' '?>"  name=
          "adresseElectronique" size ="75" maxlength="70"></td>
       </tr>
       <tr class="ligneTabNonQuad">
          <td> Type*: </td>
-         <td>'
-
-<?php endif ?>
-
-
-if ($type==1)
-            {
-               
+         <td>
+            
+         <?php if ($_REQUEST['type'])   : ?> 
+            
                <input type='radio' name='type' value='1' checked>  
                Etablissement Scolaire
                <input type='radio' name='type' value='0'>  Autre
-             }
-             else
-             {
+
+         <?php else : ?>
+             
+           
                 
                 <input type='radio' name='type' value='1'> 
                 Etablissement Scolaire
-                <input type='radio' name='type' value='0' checked> Autre
-              }
-           
+                <input type='radio' name='type' value='0' checked> Autre";
+              
+         <?php endif ?> 
+
            </td>
          </tr>
          <tr class='ligneTabNonQuad'>
@@ -82,33 +88,30 @@ if ($type==1)
          </tr>
          <tr class='ligneTabNonQuad'>
             <td> Civilité*: </td>
-            <td> <select name='civiliteResponsable'>
-               for ($i=0; $i<3; $i=$i+1)
-                  if ($tabCivilite[$i]==$civiliteResponsable) 
-                  {
-                     echo "<option selected>$tabCivilite[$i]</option>
-                  }
-                  else
-                  {
-                     <option>$tabCivilite[$i]</option>
-                  }
-               
+            <td> <select name='civiliteResponsable'>";
+              <?php foreach($tabCivilite as $civilite) : ?>
+                  
+                    <option <?$civilite==$tabCivilite ? 'selected ': ''?>> <?= $civilite ?></option>
+                   
+                  
+                    <?php endforeach ?> 
+          
                </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom*: 
-               <input type="text" value="'.$nomResponsable.'" name=
+               <input type="text" value="<?=isset($_REQUEST['$nomResponsable'])?$_REQUEST['$nomResponsable']:' '?>" name=
                "nomResponsable" size="26" maxlength="25">
                &nbsp; &nbsp; &nbsp; &nbsp; Prénom: 
-               <input type="text"  value="'.$prenomResponsable.'" name=
+               <input type="text"   value="<?=isset($_REQUEST['$prenomResponsable'])?$_REQUEST['$prenomResponsable']:' '?>" name=
                "prenomResponsable" size="26" maxlength="25">
             </td>
          </tr>
           <tr class="ligneTabNonQuad">
             <td> Nombre chambres offertes*: </td>
-            <td><input type="text" value="'.$nombreChambresOffertes.'" name=
+            <td><input type="text" value="<?=isset($_REQUEST['$nombreChambresOffertes'])?$_REQUEST['$nombreChambresOffertes']:' '?>"name=
             "nombreChambresOffertes" size ="2" maxlength="3"></td>
          </tr>
-   </table>
+   </table>';
    
-   
+  
    <table align='center' cellspacing='15' cellpadding='0'>
       <tr>
          <td align='right'><input type='submit' value='Valider' name='valider'>
@@ -117,27 +120,11 @@ if ($type==1)
          </td>
       </tr>
       <tr>
-         <td colspan='2' align='center'><a href='listeEtablissements.php'>Retour</a>
+         <td colspan='2' align='center'><a href='index.php?action=listeEtablissements'>Retour</a>
          </td>
       </tr>
    </table>
 </form>";
-
-
-
-if ($action=='validerCreEtab')
-{
-   if (nbErreurs()!=0)
-   {
-      afficherErreurs();
-   }
-   else
-   {
-      
-      <h5><center>La création de l'établissement a été effectuée</center></h5>";
-   }
-}
-
 
 
 

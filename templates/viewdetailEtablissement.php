@@ -5,43 +5,43 @@
 </table>
 <br>
 
-<?php foreach($req as $value): ?>
+<?php foreach($req as $row): ?>
 
    <table width='60%' cellspacing='0' cellpadding='0' align='center' 
    class='tabNonQuadrille'>
       
       <tr class='enTeteTabNonQuad'>
-         <td colspan='3'><?=$value['nom'] ?></td>
+         <td colspan='3'><?=$row['nom'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td  width='20%'> id: </td>
-         <td><?= $value['id'] ?></td>
+         <td><?= $row['id'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Adresse: </td>
-         <td><?=$value['adresseRue'] ?></td>
+         <td><?=$row['adresseRue'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Code postal: </td>
-         <td><?=$value['codePostal'] ?></td>
+         <td><?=$row['codePostal'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Ville: </td>
-         <td><?=$value['ville'] ?></td>
+         <td><?=$row['ville'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Téléphone: </td>
-         <td><?=$value['tel'] ?></td>
+         <td><?=$row['tel'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> E-mail: </td>
-         <td><?=$value['adresseElectronique'] ?></td>
+         <td><?=$row['adresseElectronique'] ?></td>
       </tr>
       <tr class='ligneTabNonQuad'>
          <td> Type: </td>
         
 
-         <?php if ($value['type']) : ?>
+         <?php if ($row['type']) : ?>
 <td> Etablissement scolaire </td>
 <?php else : ?>
 <td> Autre établissement </td>
@@ -51,12 +51,12 @@
         </tr>
       <tr class='ligneTabNonQuad'>
       <td> Responsable: </td>
-         <td><?=$value['nomResponsable'] ?> <?=$value['prenomResponsable'] ?>  <?=$value['civiliteResponsable'] ?> </td>
+         <td><?=$row['nomResponsable'] ?> <?=$row['prenomResponsable'] ?>  <?=$row['civiliteResponsable'] ?> </td>
          
       </tr> 
       <tr class='ligneTabNonQuad'>
          <td> Offre: </td>
-         <td> <?=$value['nombreChambresOffertes'] ?>&nbsp;chambre(s)</td>
+         <td> <?=$row['nombreChambresOffertes'] ?>&nbsp;chambre(s)</td>
       </tr>
 
       <?php endforeach  ?> 

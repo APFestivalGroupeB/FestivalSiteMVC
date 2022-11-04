@@ -1,8 +1,11 @@
 <?php
 $titre="/detailEtablissement";
-   include("_debut.inc.php");
+   
+include("_debut.inc.php");
    include("_gestionBase.inc.php"); 
    include("_controlesEtGestionErreurs.inc.php");
+   
+
 
    $connexion=connect();
    if (!$connexion)
@@ -17,6 +20,7 @@ $titre="/detailEtablissement";
    $req  = obtenirDetailEtablissement($connexion, $id) ;
   
    ob_start();
+   require ('model/modeletablissements.php');
    require ('templates/viewdetailEtablissement.php');
    $content = ob_get_clean();
    echo  $content;

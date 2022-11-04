@@ -11,7 +11,6 @@ if (!$connexion)
    afficherErreurs();
    exit();
 }
-
 require ('modellisteEtablissements.php');
 $lgEtab  = lgEtab($connexion)  ;
 ob_start();
