@@ -1,9 +1,7 @@
-
-
-    <link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
+<link href="css/cssGeneral.css" rel="stylesheet" type="text/css">
 <table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php'>Accueil ></a> listeEtablissements</td>
+   <td align='center'><a href='../index.php'>Accueil ></a> listeEtablissements</td>
    </tr>
 </table>
 
@@ -17,16 +15,16 @@ class='tabNonQuadrille'>
          <td width='52%'><?= $value['nom'] ?></td>
          
          <td width='16%' align='center'> 
-         <a href='detailEtablissement.php?idEtab=<?= $value['id'] ?>'>
+         <a href='ctrldetailEtablissement.php?idEtab=<?= $value['id'] ?>'>
          Voir détail</a></td>
          
          <td width='16%' align='center'> 
-         <a href='modificationEtablissement.php?action=demanderModifEtab&amp;idEtab=<?= $value['id'] ?>'>
+         <a href='ctrlmodificationEtablissement.php?action=demanderModifEtab&amp;idEtab=<?= $value['id'] ?>'>
          Modifier</a></td>
 		 
 		 <?php if(!existeAttributionsEtab($connexion, $value['id'])) : ?>
 		 <td width='16%' align='center'> 
-            <a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;idEtab=<?= $value['id'] ?>'>
+            <a href='ctrlsuppressionEtablissement.php?action=demanderSupprEtab&amp;idEtab=<?= $value['id'] ?>'>
             Supprimer</a></td>
 		 <?php else : ?>
 			
@@ -34,10 +32,10 @@ class='tabNonQuadrille'>
 				<td width='16%'>Complet</td>
 			<?php else : ?>
 				<?php if(obtenirNbOccup($connexion, $value['id']) == ChambresMax($connexion, $value['id'])) : ?>
-                <td width='16%'>Complet</td>
-            <?php else : ?>
-                <td width='16%'><?= obtenirNbOccup($connexion, $value['id']) ?> chambres occupés</td>
-            <?php endif ?>
+                    <td width='16%'>Complet</td>
+                <?php else : ?>
+                    <td width='16%'><?= obtenirNbOccup($connexion, $value['id']) ?> chambres occupés</td>
+                <?php endif ?>
             <?php endif ?>
 		 <?php endif ?>
 	
@@ -45,7 +43,7 @@ class='tabNonQuadrille'>
 	<?php endforeach  ?> 
   
 	<tr class='ligneTabNonQuad'>
-      <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
+      <td colspan='4'><a href='ctrlcreationEtablissement.php?action=demanderCreEtab'>
       Création d'un établissement</a ></td>
   </tr>
 </table>

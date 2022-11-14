@@ -4,7 +4,7 @@ $req=obtenirReqEtablissements($connexion);
 $rsEtab=$connexion->query($req);
 return $rsEtab->fetchAll();
 }
-ob_start();
+$lgEtab  = lgEtab($connexion)  ;
 ?>
 
 

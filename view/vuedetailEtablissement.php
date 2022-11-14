@@ -1,6 +1,6 @@
 <table width='80%' cellpadding='0' cellspacing='0' align='center'>
    <tr>
-   <td align='center'><a href='index.php'>Accueil ></a> <a href='listeEtablissements.php'> listeEtablissements ></a> detailEtablissement</td>
+   <td align='center'><a href='../index.php'>Accueil ></a> <a href='ctrllisteEtablissements.php'> listeEtablissements ></a> detailEtablissement</td>
    </tr>
 </table>
 <br>
@@ -63,7 +63,7 @@
    </table>
    <table align='center'>
       <tr>
-         <td align='center'><a href='listeEtablissements.php'>Retour</a>
+         <td align='center'><a href='ctrllisteEtablissements.php'>Retour</a>
          </td>
       </tr>
    </table>

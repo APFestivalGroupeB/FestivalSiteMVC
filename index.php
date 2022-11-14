@@ -1,27 +1,25 @@
-<?php 
-$titre="/accueil";
-include "_debut.inc.php";
+<!DOCTYPE html>
+<?php $titre="/accueil";
+include "controller/_debut.inc.php";?>
 
-echo " 
 <br> 
 <table width='80%' cellspacing='0' cellpadding='0' align='center'>
    <tr>  
       <td class='texteAccueil'>
-         Cette application web permet de gérer l'hébergement des ligues de sport 
-         durant le festival Sp'Or.
+      Cette application web permet de gérer l'hébergement des ligues de sport 
+      durant le festival Sp'Or.
       </td>
    </tr>
    <tr>
-      <td>&nbsp;
+      <td>
       </td>
    </tr>
    <tr>
       <td class='texteAccueil'>
-          Elle offre les services suivants :
       </td>
    </tr>
    <tr>
-      <td>&nbsp;
+      <td>
       </td>
    </tr>
    <tr>
@@ -37,6 +35,5 @@ echo "
       </ul>
       </td>
    </tr>
-</table>";
-
-?>
+</table>
+</html>
